@@ -2,7 +2,9 @@ package com.example.quizonline.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,13 +28,11 @@ public class Question {
     @NotBlank
     private String questionType;
 
-    @NotBlank
-    @Size(max=4)
     @ElementCollection
+    @NotEmpty
     private List<String> choices;
 
-    @NotBlank
     @ElementCollection
+    @NotEmpty
     private List<String> correctAnswers;
-
 }
