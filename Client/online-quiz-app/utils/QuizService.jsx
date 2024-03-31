@@ -1,12 +1,12 @@
-import axios from "axios"
+import axios from 'axios'
 
 export const api = axios.create({
-    baseURL: "http://localhost:9192/api/quizzes"
+    baseURL: 'http://localhost:9192/api/quizzes'
 })
 
 export const createQuestion = async(quizQuestion) => {
     try {
-        const response = await api.post("/create-question", quizQuestion)
+        const response = await api.post('/create-question', quizQuestion)
         return response.data
     } catch (error) {
         console.error(error)
@@ -15,7 +15,7 @@ export const createQuestion = async(quizQuestion) => {
 
 export const getAllQuestions = async() => {
     try {
-        const response = await api.get("/all-questions")
+        const response = await api.get('/all-questions')
         return response.data
     } catch (error) {
         console.error(error)
@@ -36,7 +36,7 @@ export const fetchQuizToDisplay = async(number, subject) => {
 
 export const getSubjects = async() => {
     try {
-        const response = await api.get("/subjects")
+        const response = await api.get('/subjects')
     } catch (error) {
         console.error(error)
     }
