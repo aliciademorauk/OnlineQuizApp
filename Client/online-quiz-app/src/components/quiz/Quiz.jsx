@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { fetchQuizToDisplay } from '../../../utils/QuizService'
-<<<<<<< HEAD
 import AnswerOptions from '../../../utils/AnswerOptions'
-=======
->>>>>>> 7f5321a479de0ff11027c5966bd3a474f2feed47
 
 const Quiz = () => {
     const[quizQuestions, setQuizQuestions] = useState([{
@@ -125,7 +122,6 @@ const Quiz = () => {
     }
 
   return (
-<<<<<<< HEAD
     <div className='p-5'>
         <h3 className='text-info'>
             Question {quizQuestions.length > 0 ? currentQuestionIndex + 1 : 0} 
@@ -160,10 +156,6 @@ const Quiz = () => {
                 </button>
             </div>
         </h4>
-=======
-    <div>
-
->>>>>>> 7f5321a479de0ff11027c5966bd3a474f2feed47
     </div>
   )
 }
