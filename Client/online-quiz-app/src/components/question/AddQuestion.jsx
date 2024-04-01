@@ -24,7 +24,7 @@ const AddQuestion = () => {
         }
     }
 
-    const handleAddChoices = async () => {
+    const handleAddChoice = async () => {
         const lastChoice = choices[choices.length - 1]
         const lastChoiceLetter = lastChoice ? lastChoice.charAt(0) : 'A'
         const newChoiceLetter = String.fromCharCode(lastChoiceLetter.charCodeAt(0))
@@ -89,7 +89,7 @@ const AddQuestion = () => {
     return (
         <div className='container'>
             <div className='row justify-content-center'>
-                <div className='cold-md-6 mt-5'>
+                <div className='col-md-6 mt-5'>
                     <div className='card'>
                         <div className='card-header'>
                             <h5 className='card-title'>Add New Question</h5>
