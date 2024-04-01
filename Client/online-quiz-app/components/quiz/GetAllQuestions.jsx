@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { deleteQuestion } from '../../utils/QuizService'
+import { deleteQuestion, getAllQuestions } from '../../utils/QuizService'
 
 const GetAllQuestions = () => {
     const [question, setQuestions] = useState([
@@ -38,9 +38,7 @@ const GetAllQuestions = () => {
     if(isLoading) {
         return <div>Loading...</div>
     }
-    return (
-        
-    )
+    return ()
 }
 
 export default GetAllQuestions
