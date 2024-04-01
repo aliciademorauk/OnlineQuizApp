@@ -47,7 +47,7 @@ const GetAllQuestions = () => {
 					<h4>All Questions</h4>
 				</div>
 				<div className='col-md-4 d-flex justify-content-end'>
-                    {/* To do: add link to update question */}
+                    {/* To do: add link to add new question */}
 				</div>
 			</div>
 			<hr />
@@ -62,9 +62,7 @@ const GetAllQuestions = () => {
 					</ul>
 					<p className='text-success'>Correct Answer: {question.correctAnswers}</p>
 					<div className='btn-group mb-4'>
-						<Link to={`/update-quiz/${question.id}`}>
-							<button className='btn btn-sm btn-outline-warning mr-2'>Edit Question</button>
-						</Link>
+						{/* To do: add link to update question */}
 						<button
 							className='btn btn-sm btn-outline-danger'
 							onClick={() => handleDeleteQuestion(question.id)}>
