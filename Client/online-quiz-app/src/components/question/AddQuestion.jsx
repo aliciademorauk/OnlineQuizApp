@@ -1,4 +1,4 @@
-import React, { useInsertionEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createQuestion, getSubjects } from '../../utils/QuizService'
 
 
