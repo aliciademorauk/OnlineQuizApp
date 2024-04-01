@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { fetchQuizToDisplay } from '../../../utils/QuizService'
+import AnswerOptions from '../../../utils/AnswerOptions'
 
 const Quiz = () => {
     const[quizQuestions, setQuizQuestions] = useState([{
@@ -121,8 +122,40 @@ const Quiz = () => {
     }
 
   return (
-    <div>
-
+    <div className='p-5'>
+        <h3 className='text-info'>
+            Question {quizQuestions.length > 0 ? currentQuestionIndex + 1 : 0} 
+            of {quizQuestions.length}
+        </h3>
+        <h4 className='mb-4'>
+            {quizQuestions[currentQuestionIndex]?.question}
+            <AnswerOptions 
+                question={quizQuestions[currentQuestionIndex]}
+                isChecked={isChecked}
+                handleChangeAnswer={handleChangeAnswer}
+                handleChangeCheckbox={handleChangeCheckbox}/>
+            <div className='mt-4'>
+                <button
+                className='btn btn-primary btn-sm me-2'
+                onClick={handlePreviousQuestion}
+                disabled={currentQuestionIndex === 0}>
+                    Previous Question
+                </button>
+                <button
+                    className={`btn btn-sm btn-info ${
+                        currentQuestionIndex === quizQuestions.length - 1 && 'btn btn-sm btn-warning'
+                    }`}
+                    disabled={
+                        !selectedAnswers.find(
+                            (answer) =>
+                                answer.id === quizQuestions[currentQuestionIndex]?.id || answer.answer.length > 0
+                        )
+                    }
+                    onClick={handleNextQuestion}>
+                    {currentQuestionIndex === quizQuestions.length - 1 ? 'Submit Quiz' : 'Next Question'}
+                </button>
+            </div>
+        </h4>
     </div>
   )
 }
