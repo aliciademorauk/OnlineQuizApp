@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { deleteQuestion, getAllQuestions } from '../../utils/QuizService'
+import { deleteQuestion, getAllQuestions } from '../../../utils/QuizService'
 
 const GetAllQuestions = () => {
     const [questions, setQuestions] = useState([

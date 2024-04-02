@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import QuizStepper from './components/quiz/QuizStepper'
 import Quiz from './components/quiz/Quiz'
-import QuizResult from './components/quiz/QuizResult'
+import QuizResults from './components/quiz/QuizResults'
 import GetAllQuestions from './components/quiz/GetAllQuestions'
 import AddQuestion from './components/question/AddQuestion'
 import UpdateQuestion from './components/question/UpdateQuestion'
@@ -24,7 +24,7 @@ function App() {
             <Route path='/create-quiz' element={<AddQuestion />} />
             <Route path='/update-quiz/:id' element={<UpdateQuestion />} />
             <Route path='/all-quizzes' element={<GetAllQuestions />} />
-            <Route path='/quiz-result' element={<QuizResult />} />
+            <Route path='/quiz-result' element={<QuizResults />} />
           </Routes>
       </Router>
     </main>
