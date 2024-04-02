@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { deleteQuestion, getAllQuestions } from '../../utils/QuizService'
 
 const GetAllQuestions = () => {
@@ -47,13 +48,15 @@ const GetAllQuestions = () => {
 					<h4>All Questions</h4>
 				</div>
 				<div className='col-md-4 d-flex justify-content-end'>
-                    {/* To do: add link to add new question */}
+                    <Link to={'/create-quiz'}>
+                        Add Question
+					</Link>
 				</div>
 			</div>
 			<hr />
 			{isQuestionDeleted && <div className='alert alert-success'>{deleteSuccessMessage}</div>}
 			{questions.map((question, index) => (
-				<div>
+				<div key={question.id}>
 						<h4 style={{ color: 'GrayText' }}>{`${index + 1}. ${question.question}`}</h4>
 					<ul>
 						{question.choices.map((choice, index) => (
@@ -62,7 +65,8 @@ const GetAllQuestions = () => {
 					</ul>
 					<p className='text-success'>Correct Answer: {question.correctAnswers}</p>
 					<div className='btn-group mb-4'>
-						{/* To do: add link to update question */}
+                        <Link to={`/update-quiz/${question.id}`}/>
+                        <button className='btn btn-sm btn-outline-warning mr-2'>Edit Question</button>
 						<button
 							className='btn btn-sm btn-outline-danger'
 							onClick={() => handleDeleteQuestion(question.id)}>
