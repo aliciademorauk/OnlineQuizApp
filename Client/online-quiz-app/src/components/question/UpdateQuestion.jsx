@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { getQuestion, updateQuestion } from '../../../utils/QuizService'
 import { useParams } from 'react-router-dom'
 
