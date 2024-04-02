@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { createQuestion, getSubjects } from '../../../utils/QuizService'
 
 
@@ -17,8 +18,8 @@ const AddQuestion = () => {
 
     const fetchSubjects = async () => {
         try {
-            const subjectData = await getSubjects()
-            setOptions(subjectData)
+            const subjectsData = await getSubjects()
+            setOptions(subjectsData)
         } catch (error) {
             console.error(error)
         }
@@ -27,7 +28,7 @@ const AddQuestion = () => {
     const handleAddChoice = async () => {
         const lastChoice = choices[choices.length - 1]
         const lastChoiceLetter = lastChoice ? lastChoice.charAt(0) : 'A'
-        const newChoiceLetter = String.fromCharCode(lastChoiceLetter.charCodeAt(0))
+        const newChoiceLetter = String.fromCharCode(lastChoiceLetter.charCodeAt(0) + 1)
         const newChoice = `${newChoiceLetter}.`
         setChoices([...choices, newChoice])
     }
@@ -42,14 +43,14 @@ const AddQuestion = () => {
     }
 
     const handleAddCorrectAnswer = () => {
-        setCorrectAnswers([...setCorrectAnswers, ''])
+        setCorrectAnswers([...correctAnswers, ''])
     }
 
     const handleChangeCorrectAnswer = (index, value) => {
         setCorrectAnswers(choices.map((answer, i) => (i === index ? value : answer)))
     }
 
-    const handleRemoveCorrectAnswer = (index, value) => {
+    const handleRemoveCorrectAnswer = (index) => {
         setCorrectAnswers(correctAnswers.filter((answer, i) => i !== index))
     }
 
@@ -63,7 +64,7 @@ const AddQuestion = () => {
                 correctAnswers: correctAnswers.map((answer) => {
                     const choiceLetter = answer.charAt(0).toUpperCase()
                     const choiceIndex = choiceLetter.charCodeAt(0) - 65
-                    return choiceIndex >= 0 && choiceIndex < choice.length ? choiceLetter : null
+                    return choiceIndex >= 0 && choiceIndex < choices.length ? choiceLetter : null
                 }),
                 subject
             }
@@ -152,7 +153,7 @@ const AddQuestion = () => {
                                     <select
                                         className='form-control'
                                         id='question-type'
-                                        vaue='question-type'
+                                        value='question-type'
                                         onChange={(e) => setQuestionType(e.target.value)}>
                                         <option value={'single'}>Single Answer</option>
                                         <option value={'single'}>Multiple</option>
@@ -202,20 +203,20 @@ const AddQuestion = () => {
                                             Correct Answer (s)
                                         </label>
                                         {correctAnswers.map((answer, index) => (
-                                            <div>
+                                            <div key={index} className='d-flex mb-2'>
                                                 <input
                                                     className='form-control'
                                                     type='text'
                                                     value={answer}
                                                     onChange={(e) => handleChangeCorrectAnswer(index, e.target.value)}/>
-                                                    {index > 0 && (
-                                                        <button
-                                                        className='btn btn-danger btn-small'
-                                                        type='button'
-                                                        onClick={() => handleRemoveCorrectAnswer(index)}>
-                                                            Remove
-                                                        </button>
-                                                    )}
+                                                {index > 0 && (
+                                                    <button
+                                                    className='btn btn-danger btn-small'
+                                                    type='button'
+                                                    onClick={() => handleRemoveCorrectAnswer(index)}>
+                                                        Remove
+                                                    </button>
+                                                )}
                                             </div>
                                         ))}
 
@@ -234,11 +235,9 @@ const AddQuestion = () => {
                                     type='submit'>
                                         Save
                                     </button>
-                                    {/* <Link to={''}
-                                    className='btn btn-outline-success mr-2'
-                                    type='submit'>
-                                        Save
-                                    </Link> */}
+                                    <Link to={'/all-quizzes'} className='btn btn-outline-primary ml-2'>
+										Back to existing questions
+									</Link>
                                 </div>
                             </form>
                         </div>
