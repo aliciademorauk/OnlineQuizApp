@@ -33,7 +33,9 @@ const Quiz = () => {
     const handleChangeAnswer = (questionId, answer) => {
         setSelectedAnswers((previousAns) => {
             const existingAnsIndex = previousAns.findIndex((answerObj) => answerObj.id === questionId)
-            const selectedAnswer = Array.isArray(answer) ? answer.map((a) => a.charAt(0)) : answer.charAt(0)
+            const selectedAnswer = Array.isArray(answer) 
+            ? answer.map((a) => a.charAt(0)) 
+            : answer.charAt(0)
 
             if (existingAnsIndex !== -1) {
                 const updatedAnswers = [...previousAns]
@@ -60,18 +62,20 @@ const Quiz = () => {
     const handleChangeCheckbox = (questionId, choice) => {
         setSelectedAnswers((previousAns) => {
             const existingAnsIndex = previousAns.findIndex((answerObj) => answerObj.id === questionId)
-            const selectedAnswer = Array.isArray(choice) ? choice.map((c) => c.charAt(0)) : choice.charAt(0)
+            const selectedAnswer = Array.isArray(choice) 
+            ? choice.map((c) => c.charAt(0)) 
+            : choice.charAt(0)
 
             if (existingAnsIndex !== -1) {
                 const updatedAnswers  = [...previousAns]
-                const existingAnswers = updatedAnswers[existingAnsIndex].answer
+                const existingAnswer = updatedAnswers[existingAnsIndex].answer
                 let newAnswer
-                if (Array.isArray(existingAnswers)) {
-                    newAnswer = existingAnswers.includes(selectedAnswer) 
-                    ? existingAnswers.filter((a) => a !== selectedAnswer)
-                    : [...existingAnswers, selectedAnswer]
+                if (Array.isArray(existingAnswer)) {
+                    newAnswer = existingAnswer.includes(selectedAnswer) 
+                    ? existingAnswer.filter((a) => a !== selectedAnswer)
+                    : [...existingAnswer, selectedAnswer]
                 } else {
-                    newAnswer = [existingAnswers, selectedAnswer]
+                    newAnswer = [existingAnswer, selectedAnswer]
                 }
                 updatedAnswers[existingAnsIndex] = {id: questionId, answer: newAnswer}
                 return updatedAnswers
@@ -88,12 +92,13 @@ const Quiz = () => {
             const selectedAnswer = selectedAnswers.find((answer) => answer.id === question.id)
             if (selectedAnswer) {
                 const selectedOptions = Array.isArray(selectedAnswer.answer) 
-                ? selectedAnswer.answer
-                : [selectedAnswer.answer]
+                ? selectedAnswer.answer.map((option) => option.charAt(0))
+                : [selectedAnswer.answer.charAt(0)]
                 const correctOptions = Array.isArray(question.correctAnswers)
-                ? question.correctAnswers
-                : [question.correctAnswers]
-                const isCorrect = selectedOptions.every((option) => 
+                ? question.correctAnswers.map((option) => option.charAt(0))
+                : [question.correctAnswers.charAt(0)]
+                const isCorrect = selectedOptions.length === correctOptions.length 
+                && selectedOptions.every((option) => 
                 correctOptions.includes(option))
                 if(isCorrect) {
                     score++
@@ -128,34 +133,34 @@ const Quiz = () => {
             of {quizQuestions.length}
         </h3>
         <h4 className='mb-4'>
-            {quizQuestions[currentQuestionIndex]?.question}
-            <AnswerOptions 
-                question={quizQuestions[currentQuestionIndex]}
-                isChecked={isChecked}
-                handleChangeAnswer={handleChangeAnswer}
-                handleChangeCheckbox={handleChangeCheckbox}/>
-            <div className='mt-4'>
-                <button
+            <pre>{quizQuestions[currentQuestionIndex]?.question}</pre>
+        </h4>
+        <AnswerOptions 
+            question={quizQuestions[currentQuestionIndex]}
+            isChecked={isChecked}
+            handleChangeAnswer={handleChangeAnswer}
+            handleChangeCheckbox={handleChangeCheckbox}/>
+        <div className='mt-4'>
+            <button
                 className='btn btn-primary btn-sm me-2'
                 onClick={handlePreviousQuestion}
                 disabled={currentQuestionIndex === 0}>
-                    Previous Question
-                </button>
-                <button
-                    className={`btn btn-sm btn-info ${
-                        currentQuestionIndex === quizQuestions.length - 1 && 'btn btn-sm btn-warning'
-                    }`}
-                    disabled={
-                        !selectedAnswers.find(
-                            (answer) =>
-                                answer.id === quizQuestions[currentQuestionIndex]?.id || answer.answer.length > 0
-                        )
-                    }
-                    onClick={handleNextQuestion}>
-                    {currentQuestionIndex === quizQuestions.length - 1 ? 'Submit Quiz' : 'Next Question'}
-                </button>
-            </div>
-        </h4>
+                Previous Question
+            </button>
+            <button
+                className={`btn btn-sm btn-info ${
+                    currentQuestionIndex === quizQuestions.length - 1 && 'btn btn-sm btn-warning'
+                }`}
+                disabled={
+                    !selectedAnswers.find(
+                        (answer) =>
+                            answer.id === quizQuestions[currentQuestionIndex]?.id || answer.answer.length > 0
+                    )
+                }
+                onClick={handleNextQuestion}>
+                {currentQuestionIndex === quizQuestions.length - 1 ? 'Submit Quiz' : 'Next Question'}
+            </button>
+        </div>
     </div>
   )
 }

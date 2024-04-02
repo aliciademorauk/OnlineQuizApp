@@ -34,7 +34,7 @@ const QuizStepper = () => {
         }
     }
 
-    const handlePreviousStep = (e) => {
+    const handlePreviousStep = () => {
         setCurrentStep((previousStep) => previousStep - 1)
     }
 
