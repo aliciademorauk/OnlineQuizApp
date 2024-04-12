@@ -22,7 +22,7 @@ function App() {
             <Route path='/admin' element={<Admin />} />
             <Route path='/create-quiz' element={<AddQuestion />} />
             <Route path='/update-quiz/:id' element={<UpdateQuestion />} />
-            <Route path='/all-quizzes' element={<GetAllQuestions />} />
+            <Route path='/all-questions' element={<GetAllQuestions />} />
             <Route path='/quiz-result' element={<QuizResults />} />
           </Routes>
       </Router>
