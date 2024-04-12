@@ -1,50 +1,50 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { getSubjects } from '../../../utils/QuizService'
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getSubjects } from '../../../utils/QuizService';
 
 const QuizStepper = () => {
-    const[currentStep, setCurrentStep] = useState(1)
-    const[selectedSubject, setSelectedSubject] = useState('')
-    const[selectedNumOfQs, setSelectedNumOfQs] = useState('')
-    const[subjects, setSubjects] = useState([])
-    const navigate = useNavigate()
+    const[currentStep, setCurrentStep] = useState(1);
+    const[selectedSubject, setSelectedSubject] = useState('');
+    const[selectedNumOfQs, setSelectedNumOfQs] = useState('');
+    const[subjects, setSubjects] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetchSubjects()
-    }, [])
+        fetchSubjects();
+    }, []);
   
     const fetchSubjects = async() => {
         try {
-            const allSubjects = await getSubjects()
-            setSubjects(allSubjects)
+            const allSubjects = await getSubjects();
+            setSubjects(allSubjects);
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
-    }
+    };
 
     const handleNext = () => {
         if (currentStep === 3) {
             if (selectedSubject && selectedNumOfQs) {
-                navigate('/take-quiz', {state: {selectedNumOfQs, selectedSubject}})
+                navigate('/take-quiz', {state: {selectedNumOfQs, selectedSubject}});
             } else {
-                alert('Please select the number of questions of a given subject to answer.')
+                alert('Please select the number of questions of a given subject to answer.');
             }
         } else {
-            setCurrentStep((previousStep) => previousStep + 1)
+            setCurrentStep((previousStep) => previousStep + 1);
         }
-    }
+    };
 
     const handlePreviousStep = () => {
-        setCurrentStep((previousStep) => previousStep - 1)
-    }
+        setCurrentStep((previousStep) => previousStep - 1);
+    };
 
     const handleChangeSubject = (e) => {
-        setSelectedSubject(e.target.value)
-    }
+        setSelectedSubject(e.target.value);
+    };
 
     const handleChangeNumOfQs = (e) => {
-        setSelectedNumOfQs(e.target.value)
-    }
+        setSelectedNumOfQs(e.target.value);
+    };
 
     const renderStepContent = () => {
         switch(currentStep) {
@@ -64,7 +64,7 @@ const QuizStepper = () => {
                         ))}
                     </select>
                 </div>
-                )
+                );
             case 2:
                 return (
                     <div>
@@ -76,7 +76,7 @@ const QuizStepper = () => {
                             onChange={handleChangeNumOfQs}
                             placeholder='Enter number of questions:'/>
                     </div>
-                )
+                );
             case 3:
                 return (
                     <div>
@@ -84,13 +84,13 @@ const QuizStepper = () => {
                         <p>Subject: {selectedSubject}</p>
                         <p>Number of questions: {selectedNumOfQs}</p>
                     </div>
-                )
-                default: return null
+                );
+                default: return null;
         }
-    }
+    };
 
     const renderProgressBar = () => {
-        const progress = currentStep === 3 ? 100 :((currentStep - 1) / 2 * 100)
+        const progress = currentStep === 3 ? 100 :((currentStep - 1) / 2 * 100);
         return <div className='progress'>
             <div 
                 className='progress-bar'
@@ -99,8 +99,8 @@ const QuizStepper = () => {
                 aria-valuenow={progress}>
                 Step {currentStep}
             </div>
-        </div>
-    }
+        </div>;
+    };
 
     return (
     <section className='mt-5'>
@@ -137,7 +137,7 @@ const QuizStepper = () => {
             </div>
         </div>
     </section>
-  )
-}
+  );
+};
 
-export default QuizStepper
+export default QuizStepper;
