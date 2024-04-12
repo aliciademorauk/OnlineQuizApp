@@ -104,13 +104,11 @@ const QuizStepper = () => {
 
     return (
     <section className='mt-5'>
-        <h3 style={{color: 'GrayText'}}>Meet the best study-buddy.</h3>
-        <h4 style={{color: 'GrayText'}}>Welcome to <bold>OnlineQuizApp</bold>.</h4>
         {renderProgressBar()}
         <div className='card'>
             <div className='card-body'>
                 {renderStepContent()}
-                <div>
+                <div className="d-flex justify-content-between mt-4">
                     {currentStep > 1 && (
                         <button 
                             className='btn btn-primary'
