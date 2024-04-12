@@ -1,91 +1,96 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { createQuestion, getSubjects } from '../../../utils/QuizService'
-
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { createQuestion, getSubjects } from '../../../utils/QuizService';
 
 const AddQuestion = () => {
-    const [question, setQuestion] = useState('')
-    const [questionType, setQuestionType] = useState('single')
-    const [choices, setChoices] = useState([''])
-    const [correctAnswers, setCorrectAnswers] = useState([''])
-    const [subject, setSubject] = useState('')
-    const [newSubject, setNewSubject] = useState('')
-    const [options, setOptions] = useState([''])
+    const [question, setQuestion] = useState('');
+    const [questionType, setQuestionType] = useState('single');
+    const [choices, setChoices] = useState(['']);
+    const [correctAnswers, setCorrectAnswers] = useState(['']);
+    const [subject, setSubject] = useState('');
+    const [newSubject, setNewSubject] = useState('');
+    const [options, setOptions] = useState(['']);
 
     useEffect(() => {
-        fetchSubjects()
-    }, [])
+        fetchSubjects();
+    }, []);
 
     const fetchSubjects = async () => {
         try {
-            const subjectsData = await getSubjects()
-            setOptions(subjectsData)
+            const subjectsData = await getSubjects();
+            setOptions(subjectsData);
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
-    }
+    };
 
     const handleAddChoice = async () => {
-        const lastChoice = choices[choices.length - 1]
-        const lastChoiceLetter = lastChoice ? lastChoice.charAt(0) : 'A'
-        const newChoiceLetter = String.fromCharCode(lastChoiceLetter.charCodeAt(0) + 1)
-        const newChoice = `${newChoiceLetter}.`
-        setChoices([...choices, newChoice])
-    }
+        const lastChoice = choices[choices.length - 1];
+        if (lastChoice.trim() !== '') {
+            const lastChoiceLetter = lastChoice.charAt(0);
+            const newChoiceLetter = String.fromCharCode(lastChoiceLetter.charCodeAt(0) + 1);
+            const newChoice = `${newChoiceLetter}.`;
+            setChoices([...choices, newChoice]);
+        }
+    };
 
     const handleRemoveChoice = (index) => {
-        setChoices(choices.filter((choice, i) => i !== index))
-
-    }
+        const newChoices = choices.filter((choice, i) => i !== index);
+        if (newChoices.length === 0) {
+            setChoices(['']);
+        } else {
+            setChoices(newChoices);
+        }
+    };
 
     const handleChangeChoice = (index, value) => {
-        setChoices(choices.map((choice, i) => (i === index ? value : choice)))
-    }
+        setChoices(choices.map((choice, i) => (i === index ? value : choice)));
+    };
 
     const handleAddCorrectAnswer = () => {
-        setCorrectAnswers([...correctAnswers, ''])
-    }
+        setCorrectAnswers([...correctAnswers, '']);
+    };
 
     const handleChangeCorrectAnswer = (index, value) => {
-        setCorrectAnswers(choices.map((answer, i) => (i === index ? value : answer)))
-    }
+        setCorrectAnswers(choices.map((answer, i) => (i === index ? value : answer)));
+    };
 
     const handleRemoveCorrectAnswer = (index) => {
-        setCorrectAnswers(correctAnswers.filter((answer, i) => i !== index))
-    }
+        setCorrectAnswers(correctAnswers.filter((answer, i) => i !== index));
+    };
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         try {
             const result = {
                 question,
                 questionType,
                 choices,
                 correctAnswers: correctAnswers.map((answer) => {
-                    const choiceLetter = answer.charAt(0).toUpperCase()
-                    const choiceIndex = choiceLetter.charCodeAt(0) - 65
-                    return choiceIndex >= 0 && choiceIndex < choices.length ? choiceLetter : null
+                    const choiceLetter = answer.charAt(0).toUpperCase();
+                    const choiceIndex = choiceLetter.charCodeAt(0) - 65;
+                    return choiceIndex >= 0 && choiceIndex < choices.length ? choiceLetter : null;
                 }),
-                subject
-            }
-            await createQuestion(result)
-            setQuestion('')
-            setQuestionType('single')
-            setSubject('')
-            setChoices([''])
-            setCorrectAnswers([''])
+                subject,
+            };
+            await createQuestion(result);
+            setQuestion('');
+            setQuestionType('single');
+            setSubject('');
+            setChoices(['']);
+            setCorrectAnswers(['']);
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
-    }
+    };
 
     const handleAddSubject = () => {
         if (newSubject.trim !== '') {
-            setSubject(newSubject.trim())
-            setOptions([...options, newSubject.trim()])
-            setNewSubject('')
+            setSubject(newSubject.trim());
+            setOptions([...options, newSubject.trim()]);
+            setNewSubject('');
         }
-    }
+    };
 
     return (
         <div className='container'>
@@ -103,7 +108,7 @@ const AddQuestion = () => {
                                     </label>
                                     <select
                                         id='subject'
-                                        value='subject'
+                                        value={subject}
                                         onChange={(e) => setSubject(e.target.value)}
                                         className='form-control'>
                                         <option value={''}>Select Subject</option>
@@ -122,14 +127,14 @@ const AddQuestion = () => {
                                         </label>
                                         <input
                                             id='new-subject'
-                                            value='new-subject'
                                             type='text'
+                                            value= {newSubject}
                                             onChange={(e) => setNewSubject(e.target.value)}
                                             className='form-control'
                                         />
                                         <button
                                             type='button'
-                                            className='btn-outline-primary btn-sm mt-2'
+                                            className='btn btn-outline-primary btn-sm mt-2'
                                             onClick={handleAddSubject}>
                                             Add Subject
                                         </button>
@@ -153,10 +158,10 @@ const AddQuestion = () => {
                                     <select
                                         className='form-control'
                                         id='question-type'
-                                        value='question-type'
+                                        value={questionType}
                                         onChange={(e) => setQuestionType(e.target.value)}>
                                         <option value={'single'}>Single Answer</option>
-                                        <option value={'single'}>Multiple</option>
+                                        <option value={'multiple'}>Multiple</option>
                                     </select>
                                 </div>
                                 <div className='mb-3'>
@@ -174,14 +179,14 @@ const AddQuestion = () => {
                                                 className='btn btn-outline-danger btn-sm'
                                                 type='button'
                                                 onClick={() => handleRemoveChoice(index)}>
-                                                Remove
+                                                Delete
                                             </button>
                                         </div>
                                     ))}
                                     <button
                                         className='btn btn-outline-primary btn-sm'
                                         type='button'
-                                        onClick={() => handleAddChoice}>
+                                        onClick={handleAddChoice}>
                                         Add Choice
                                     </button>
                                 </div>
@@ -200,7 +205,7 @@ const AddQuestion = () => {
                                 {questionType === 'multiple' && (
                                     <div className='mb-3'>
                                         <label className='form-label text-info' htmlFor='answer'>
-                                            Correct Answer (s)
+                                            Correct Answer
                                         </label>
                                         {correctAnswers.map((answer, index) => (
                                             <div key={index} className='d-flex mb-2'>
@@ -219,7 +224,6 @@ const AddQuestion = () => {
                                                 )}
                                             </div>
                                         ))}
-
                                         <button
                                         className='btn btn-outline-info'
                                         type='button'
@@ -228,7 +232,6 @@ const AddQuestion = () => {
                                         </button>
                                     </div>
                                 )}
-                                {!correctAnswers.length && <p>Please enter at least one correct answer.</p>}
                                 <div className='btn-group'>
                                     <button
                                     className='btn btn-outline-success mr-2'
@@ -236,7 +239,7 @@ const AddQuestion = () => {
                                         Save
                                     </button>
                                     <Link to={'/all-quizzes'} className='btn btn-outline-primary ml-2'>
-										Back to existing questions
+										Back To All Questions
 									</Link>
                                 </div>
                             </form>
@@ -245,7 +248,7 @@ const AddQuestion = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default AddQuestion
+export default AddQuestion;
