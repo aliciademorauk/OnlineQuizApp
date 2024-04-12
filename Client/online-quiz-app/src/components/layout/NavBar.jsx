@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
 	return (
-		<nav className='navbar navbar-expand-lg bg-body-tertiary px-5 shadow sticky-top'>
+		<nav className='navbar navbar-expand-lg bg-body-tertiary px-5 shadow sticky-top border border-primary rounded'>
 			<div className='container-fluid'>
 				<NavLink className='navbar-brand' to={'/'}>
-					Online Quiz App
+					HOMEPAGE
 				</NavLink>
 				<button
 					className='navbar-toggler'
@@ -22,13 +22,13 @@ const Navbar = () => {
 					<ul className='navbar-nav ml-auto'>
 						<li className='nav-item'>
 							<NavLink className='nav-link' to={'/admin'}>
-								Admin
+								ADMIN
 							</NavLink>
 						</li>
 
 						<li className='nav-item'>
 							<NavLink className='nav-link' to={'/quiz-stepper'}>
-								Take Quiz
+								PRACTICE
 							</NavLink>
 						</li>
 					</ul>
