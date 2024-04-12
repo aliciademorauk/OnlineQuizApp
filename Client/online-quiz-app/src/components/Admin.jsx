@@ -8,10 +8,10 @@ const Admin = () => {
 			<hr />
 			<nav className='nav flex-column'>
 				<Link to={'/create-quiz'} className='nav-link'>
-					Create a New Quiz
+					Add New Questions
 				</Link>
 				<Link to={'/all-quizzes'} className='nav-link'>
-					Manage existing Quizes
+					Manage Existing Questions
 				</Link>
 			</nav>
 		</section>
