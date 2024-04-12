@@ -10,7 +10,7 @@ const Admin = () => {
 				<Link to={'/create-quiz'} className='nav-link'>
 					Add New Questions
 				</Link>
-				<Link to={'/all-quizzes'} className='nav-link'>
+				<Link to={'/all-questions'} className='nav-link'>
 					Edit Existing Questions
 				</Link>
 			</nav>
