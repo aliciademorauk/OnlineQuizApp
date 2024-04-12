@@ -37,6 +37,7 @@ export const fetchQuizToDisplay = async(number, subject) => {
 export const getSubjects = async() => {
     try {
         const response = await api.get('/subjects')
+        return response.data
     } catch (error) {
         console.error(error)
     }
