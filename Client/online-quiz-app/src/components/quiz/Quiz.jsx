@@ -16,14 +16,15 @@ const Quiz = () => {
     const [selectedAnswers, setSelectedAnswers] = useState([
         {
             id: '',
-            answer: ['']
+            answer: ''
         }
     ]);
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [totalScore, setTotalScore] = useState(0)
     const location = useLocation();
     const navigate = useNavigate();
-    const [selectedSubject, selectedNumOfQuestions] = location.state;
+    const { selectedSubject, selectedNumOfQuestions } = location.state;
 
     useEffect(() => {
         fetchQuizData();
@@ -87,7 +88,7 @@ const Quiz = () => {
     };
 
     const handleSubmit = () => {
-        let totalScore = 0;
+        let score = 0;
         quizQuestions.forEach((question) => {
             const selectedAnswer = selectedAnswers.find((answer) => answer.id === question.id);
             if (selectedAnswer) {
@@ -99,14 +100,14 @@ const Quiz = () => {
                     : [question.correctAnswers.charAt(0)];
                 const isCorrect = selectedOptions.length === correctOptions.length && selectedOptions.every((option) => correctOptions.includes(option));
                 if (isCorrect) {
-                    totalScore++;
+                    score++;
                 }
             }
         });
-
+        setTotalScore(score);
         setSelectedAnswers([{ id: '', answer: [''] }]);
         setCurrentQuestionIndex(0);
-        navigate('/quiz-result', { state: { quizQuestions, totalScore } });
+        navigate('/quiz-result', { state: { quizQuestions, totalScore: score } });
     };
 
     const handleNextQuestion = () => {
