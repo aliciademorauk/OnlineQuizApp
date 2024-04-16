@@ -19,7 +19,7 @@ const AnswerOptions = ({question, isChecked, handleChangeAnswer, handleChangeChe
                     value={choice}
                     checked={isChecked(question.id, choice)}
                     onChange={() => handleChangeAnswer(id, choice)}/>
-                <label className='form-check-label ms-2'>{choice}</label>
+                <label htmlFor={choice} className='form-check-label ms-2'>{`${index + 1}. ${choice}`}</label>
             </div>
         ))}
     </div>
@@ -37,7 +37,7 @@ const AnswerOptions = ({question, isChecked, handleChangeAnswer, handleChangeChe
                     name={question.id}
                     checked={isChecked(question.id, choice)}
                     onChange={() => handleChangeCheckbox(id, choice)}/>
-                <label className='form-check-label ms-2'>{choice}</label>
+                <label className='form-check-label ms-2'>{`${index + 1}. ${choice}`}</label>
             </div>
         ))}
     </div>

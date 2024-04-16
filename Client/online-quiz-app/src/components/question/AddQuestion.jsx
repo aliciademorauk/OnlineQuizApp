@@ -27,9 +27,7 @@ const AddQuestion = () => {
     const handleAddChoice = async () => {
         const lastChoice = choices[choices.length - 1];
         if (lastChoice.trim() !== '') {
-            const lastChoiceLetter = lastChoice.charAt(0);
-            const newChoiceLetter = String.fromCharCode(lastChoiceLetter.charCodeAt(0) + 1);
-            const newChoice = `${newChoiceLetter}.`;
+            const newChoice = '';
             setChoices([...choices, newChoice]);
         }
     };
@@ -52,7 +50,7 @@ const AddQuestion = () => {
     };
 
     const handleChangeCorrectAnswer = (index, value) => {
-        setCorrectAnswers(choices.map((answer, i) => (i === index ? value : answer)));
+        setCorrectAnswers(correctAnswers.map((answer, i) => (i === index ? value : answer)));
     };
 
     const handleRemoveCorrectAnswer = (index) => {
@@ -66,11 +64,7 @@ const AddQuestion = () => {
                 question,
                 questionType,
                 choices,
-                correctAnswers: correctAnswers.map((answer) => {
-                    const choiceLetter = answer.charAt(0).toUpperCase();
-                    const choiceIndex = choiceLetter.charCodeAt(0) - 65;
-                    return choiceIndex >= 0 && choiceIndex < choices.length ? choiceLetter : null;
-                }),
+                correctAnswers,
                 subject,
             };
             await createQuestion(result);
@@ -111,7 +105,7 @@ const AddQuestion = () => {
                                         value={subject}
                                         onChange={(e) => setSubject(e.target.value)}
                                         className='form-control'>
-                                        <option value={''}>Select Subject</option>
+                                        <option value=''>Select Subject</option>
                                         <option value={'New'}>Add New Subject</option>
                                         {options.map((option) => (
                                             <option key={option} value={option}>
@@ -219,7 +213,7 @@ const AddQuestion = () => {
                                                     className='btn btn-danger btn-small'
                                                     type='button'
                                                     onClick={() => handleRemoveCorrectAnswer(index)}>
-                                                        Remove
+                                                        Delete
                                                     </button>
                                                 )}
                                             </div>
@@ -238,7 +232,7 @@ const AddQuestion = () => {
                                     type='submit'>
                                         Save
                                     </button>
-                                    <Link to={'/all-quizzes'} className='btn btn-outline-primary ml-2'>
+                                    <Link to={'/all-questions'} className='btn btn-outline-primary ml-2'>
 										Back To All Questions
 									</Link>
                                 </div>
