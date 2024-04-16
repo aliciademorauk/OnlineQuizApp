@@ -26,7 +26,7 @@ export const getAllQuestions = async() => {
 export const fetchQuizToDisplay = async(number, subject) => {
     try {
         const response = await api.get(
-            `/${subject}-quiz?num=${number}&subject=${subject}`)
+            `/quiz/generate-quiz?num=${number}&subject=${subject}`)
         return response.data
     } catch (error) {
         console.error(error)
