@@ -11,7 +11,7 @@ const Admin = () => {
 					Add New Questions
 				</Link>
 				<Link to={'/all-questions'} className='nav-link'>
-					Edit Existing Questions
+					View and Edit Questions
 				</Link>
 			</nav>
 		</section>
