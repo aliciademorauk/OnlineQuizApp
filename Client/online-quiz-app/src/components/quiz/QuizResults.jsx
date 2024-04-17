@@ -1,14 +1,12 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const QuizResults = () => {
-    const location = useLocation
-    const {quizQuestions, totalScore} = location.state
-    const numOfQuestions = quizQuestions.length
-    const percentScore = Math.round((totalScore/numOfQuestions) * 100)
-    const handleRetake = () => {
-        alert('Oops, this didn\'t work...')
-    }
+    const location = useLocation();
+    const navigate = useNavigate();
+    const {quizQuestions, totalScore} = location.state;
+    const numOfQuestions = quizQuestions.length;
+    const percentScore = Math.round((totalScore/numOfQuestions) * 100);
   return (
     <section className='container mt-5'>
         <h3>Your Quiz Summary</h3>
@@ -17,8 +15,8 @@ const QuizResults = () => {
         <p>Your score is {percentScore}%.</p>
         <button 
         className='btn-primary btn-sm'
-        onClick={handleRetake}>
-            Retake Quiz
+        onClick={() => navigate('/quiz-stepper')}>
+            Start Another Quiz
         </button>
     </section>
   )

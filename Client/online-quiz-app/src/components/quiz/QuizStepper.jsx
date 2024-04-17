@@ -51,12 +51,12 @@ const QuizStepper = () => {
             case 1: 
                 return (
                 <div>
-                    <h3 className='text-info mb-2'>Start Quiz</h3>
+                    <h3 className='text-info mb-2'>Set Quiz Subject</h3>
                     <select 
                         className='form-select'
                         value={selectedSubject}
                         onChange={handleChangeSubject}>
-                        <option>Select Subject</option>
+                        <option>Select</option>
                         {subjects.map((subject) => (
                             <option key={subject} value={subject}>
                                 {subject}
@@ -105,6 +105,8 @@ const QuizStepper = () => {
 
     return (
     <section className='mt-5'>
+        <h2 className='mt-5'>Quiz Setup</h2>
+        <hr />
         {renderProgressBar()}
         <div className='card'>
             <div className='card-body'>
