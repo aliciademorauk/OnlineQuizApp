@@ -79,7 +79,7 @@ const AddQuestion = () => {
     };
 
     const handleAddSubject = () => {
-        if (newSubject.trim !== '') {
+        if (newSubject.trim() !=='') {
             setSubject(newSubject.trim());
             setOptions([...options, newSubject.trim()]);
             setNewSubject('');
@@ -106,7 +106,7 @@ const AddQuestion = () => {
                                         onChange={(e) => setSubject(e.target.value)}
                                         className='form-control'>
                                         <option value=''>Select Subject</option>
-                                        <option value={'New'}>Add New Subject</option>
+                                        <option value='New'>Add New Subject</option>
                                         {options.map((option) => (
                                             <option key={option} value={option}>
                                                 {option}
