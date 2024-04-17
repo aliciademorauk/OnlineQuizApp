@@ -11,11 +11,11 @@ const AnswerOptions = ({question, isChecked, handleChangeAnswer, handleChangeChe
     return (
     <div>
         {choices.sort().map((choice, index) => (
-            <div key={choice} className='form-check mb-3'>
+            <div key={index} className='form-check mb-3'>
                 <input
                     className='form-check-input'
                     type='radio'
-                    id={choice}
+                    id={question.id + choice}
                     value={choice}
                     checked={isChecked(question.id, choice)}
                     onChange={() => handleChangeAnswer(id, choice)}/>
@@ -28,11 +28,11 @@ const AnswerOptions = ({question, isChecked, handleChangeAnswer, handleChangeChe
     <div>
         <p>Select all that apply:</p>
         {choices.sort().map((choice, index) => (
-            <div key={choice} className='form-check mb-3'>
+            <div key={index} className='form-check mb-3'>
                 <input
                     className='form-check-input'
                     type='checkbox'
-                    id={choice}
+                    id={question.id + choice}
                     value={choice}
                     name={question.id}
                     checked={isChecked(question.id, choice)}
