@@ -130,8 +130,9 @@ const Quiz = () => {
             <h3 className='text-info'>
                 Question {quizQuestions.length > 0 ? currentQuestionIndex + 1 : 0} of {quizQuestions.length}
             </h3>
+            <hr />
             <h4 className='mb-4'>
-                <pre>{quizQuestions[currentQuestionIndex]?.question}</pre>
+                {quizQuestions[currentQuestionIndex]?.question}
             </h4>
             <AnswerOptions
                 question={quizQuestions[currentQuestionIndex]}
