@@ -51,12 +51,12 @@ const QuizStepper = () => {
             case 1: 
                 return (
                 <div>
-                    <h3 className='text-info mb-2'>I want to take a quiz on... </h3>
+                    <h3 className='text-info mb-2'>Start Quiz</h3>
                     <select 
                         className='form-select'
                         value={selectedSubject}
                         onChange={handleChangeSubject}>
-                        <option>Select Subject:</option>
+                        <option>Select Subject</option>
                         {subjects.map((subject) => (
                             <option key={subject} value={subject}>
                                 {subject}
@@ -68,21 +68,21 @@ const QuizStepper = () => {
             case 2:
                 return (
                     <div>
-                        <h4 className='text-info mb-2'>How many questions should the quiz contain?</h4>
+                        <h4 className='text-info mb-2'>Number of Questions</h4>
                         <input
                             className='form-control'
                             type='number'
                             value={selectedNumOfQs}
                             onChange={handleChangeNumOfQs}
-                            placeholder='Enter number of questions:'/>
+                            placeholder='0'/>
                     </div>
                 );
             case 3:
                 return (
                     <div>
-                        <h2>Confirmation:</h2>
+                        <h2>Confirmation</h2>
                         <p>Subject: {selectedSubject}</p>
-                        <p>Number of questions: {selectedNumOfQs}</p>
+                        <p>Number of Questions: {selectedNumOfQs}</p>
                     </div>
                 );
                 default: return null;
