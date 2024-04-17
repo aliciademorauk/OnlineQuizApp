@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class QuizOnlineApplication {
+public class QuizOnlineApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(QuizOnlineApplication.class, args);
+        SpringApplication.run(QuizOnlineApp.class, args);
     }
 
 }
