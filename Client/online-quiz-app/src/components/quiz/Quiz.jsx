@@ -23,16 +23,18 @@ const Quiz = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [totalScore, setTotalScore] = useState(0)
     const location = useLocation();
+    console.log(location)
     const navigate = useNavigate();
-    const { selectedSubject, selectedNumOfQuestions } = location.state;
+    const { selectedSubject, selectedNumOfQs } = location.state;
+    console.log(selectedSubject, selectedNumOfQs)
 
     useEffect(() => {
         fetchQuizData();
     }, []);
 
     const fetchQuizData = async () => {
-        if (selectedNumOfQuestions && selectedSubject) {
-            const questions = await fetchQuizToDisplay(selectedNumOfQuestions, selectedSubject);
+        if (selectedNumOfQs && selectedSubject) {
+            const questions = await fetchQuizToDisplay(selectedNumOfQs, selectedSubject);
             setQuizQuestions(questions);
         }
     };
@@ -40,14 +42,13 @@ const Quiz = () => {
     const handleChangeAnswer = (questionId, answer) => {
         setSelectedAnswers((previousAns) => {
             const existingAnsIndex = previousAns.findIndex((answerObj) => answerObj.id === questionId);
-            const selectedAnswer = Array.isArray(answer) ? answer.map((a) => a.charAt(0)) : answer.charAt(0);
 
             if (existingAnsIndex !== -1) {
                 const updatedAnswers = [...previousAns];
-                updatedAnswers[existingAnsIndex] = { id: questionId, answer: selectedAnswer };
+                updatedAnswers[existingAnsIndex] = { id: questionId, answer: answer };
                 return updatedAnswers;
             } else {
-                const newAnswer = { id: questionId, answer: selectedAnswer };
+                const newAnswer = { id: questionId, answer: answer };
                 return [...previousAns, newAnswer];
             }
         });
@@ -55,33 +56,30 @@ const Quiz = () => {
 
     const isChecked = (questionId, choice) => {
         const selectedAnswer = selectedAnswers.find((answer) => answer.id === questionId);
+        console.log(selectedAnswer, choice)
         if (!selectedAnswer) {
             return false;
         }
-        if (Array.isArray(selectedAnswer.answer)) {
-            return selectedAnswer.answer.includes(choice.charAt(0));
-        }
-        return selectedAnswer.answer === choice.charAt(0);
+        return selectedAnswer.answer === choice;
     };
 
     const handleChangeCheckbox = (questionId, choice) => {
         setSelectedAnswers((previousAns) => {
             const existingAnsIndex = previousAns.findIndex((answerObj) => answerObj.id === questionId);
-            const selectedAnswer = Array.isArray(choice) ? choice.map((c) => c.charAt(0)) : choice.charAt(0);
 
             if (existingAnsIndex !== -1) {
                 const updatedAnswers = [...previousAns];
                 const existingAnswer = updatedAnswers[existingAnsIndex].answer;
                 let newAnswer;
                 if (Array.isArray(existingAnswer)) {
-                    newAnswer = existingAnswer.includes(selectedAnswer) ? existingAnswer.filter((a) => a !== selectedAnswer) : [...existingAnswer, selectedAnswer];
+                    newAnswer = existingAnswer.includes(choice) ? existingAnswer.filter((a) => a !== choice) : [...existingAnswer, choice];
                 } else {
-                    newAnswer = [existingAnswer, selectedAnswer];
+                    newAnswer = [existingAnswer, choice];
                 }
                 updatedAnswers[existingAnsIndex] = { id: questionId, answer: newAnswer };
                 return updatedAnswers;
             } else {
-                const newAnswer = { id: questionId, answer: [selectedAnswer] };
+                const newAnswer = { id: questionId, answer: [choice] };
                 return [...previousAns, newAnswer];
             }
         });
@@ -92,20 +90,23 @@ const Quiz = () => {
         quizQuestions.forEach((question) => {
             const selectedAnswer = selectedAnswers.find((answer) => answer.id === question.id);
             if (selectedAnswer) {
-                const selectedOptions = Array.isArray(selectedAnswer.answer)
-                    ? selectedAnswer.answer.map((option) => option.charAt(0))
-                    : [selectedAnswer.answer.charAt(0)];
-                const correctOptions = Array.isArray(question.correctAnswers)
-                    ? question.correctAnswers.map((option) => option.charAt(0))
-                    : [question.correctAnswers.charAt(0)];
-                const isCorrect = selectedOptions.length === correctOptions.length && selectedOptions.every((option) => correctOptions.includes(option));
+                const selectedOptions = selectedAnswer.answer;
+                const correctOptions = question.correctAnswers;
+                console.log(selectedOptions, correctOptions);
+                let isCorrect = false;
+                if (Array.isArray(selectedOptions)) {
+                    isCorrect = selectedOptions.length === correctOptions.length && selectedOptions.every((option) => correctOptions.includes(option));
+                } else {
+                    isCorrect = selectedOptions === correctOptions[0];
+                }
+                console.log(isCorrect)
                 if (isCorrect) {
                     score++;
                 }
             }
         });
         setTotalScore(score);
-        setSelectedAnswers([{ id: '', answer: [''] }]);
+        setSelectedAnswers([]);
         setCurrentQuestionIndex(0);
         navigate('/quiz-result', { state: { quizQuestions, totalScore: score } });
     };
