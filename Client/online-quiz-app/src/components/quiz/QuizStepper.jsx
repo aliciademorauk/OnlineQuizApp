@@ -74,7 +74,8 @@ const QuizStepper = () => {
                             type='number'
                             value={selectedNumOfQs}
                             onChange={handleChangeNumOfQs}
-                            placeholder='0'/>
+                            placeholder='0'
+                            min='0'/>
                     </div>
                 );
             case 3:
