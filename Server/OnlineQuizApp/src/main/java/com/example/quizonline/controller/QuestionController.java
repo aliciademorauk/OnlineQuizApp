@@ -16,6 +16,7 @@ import java.util.Optional;
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/quizzes")
 @RequiredArgsConstructor
 public class QuestionController {
@@ -62,13 +63,14 @@ public class QuestionController {
         return ResponseEntity.ok(subjects);
     }
 
-    @GetMapping("/{subject}-quiz")
+    @GetMapping("/quiz/generate-quiz")
     public ResponseEntity<List<Question>> getQuestionsForUser(
-            @RequestParam int num, @PathVariable @RequestParam String subject) {
+            @RequestParam Integer num, @RequestParam String subject) {
         List<Question> questions = questionService.getQuestionsForUser(num, subject);
         List<Question> mutableQuestions = new ArrayList<>(questions);
         Collections.shuffle(mutableQuestions);
-        List<Question> quiz = mutableQuestions.subList(0, Math.min(num, mutableQuestions.size()));
+        int availableQuestions = Math.min(num, mutableQuestions.size());
+        List<Question> quiz = mutableQuestions.subList(0, availableQuestions);
         return ResponseEntity.ok(quiz);
     }
 }
