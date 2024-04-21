@@ -12,10 +12,10 @@
     <br />
     <br />
     <br />
-    .
     <!-- LINK TO SECTION ON THE PAGE WITH SCREENSHOTS OF HOW IT WORKS -->
     <a href="https://github.com/othneildrew/Best-README-Template">Show me how it works!</a>
     ·
+  </p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
