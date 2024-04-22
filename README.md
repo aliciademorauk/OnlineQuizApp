@@ -150,7 +150,7 @@ To get a local copy up and running follow these steps:
    <br />
    <img width="500" alt="Screenshot 2024-04-22 at 22 00 43" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/213d3a27-a0d3-4e76-af24-5ca1aa40730b">
    <img width="500" alt="Screenshot 2024-04-22 at 22 00 50" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/c26d6bee-3e74-47ec-9cf2-10f3b91c53cb">
-   <img width="1470" alt="Screenshot 2024-04-22 at 22 00 56" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/24b4a66f-46c8-4410-937a-1d4ec18c1a9d">
+   <img width="500" alt="Screenshot 2024-04-22 at 22 00 56" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/24b4a66f-46c8-4410-937a-1d4ec18c1a9d">
    
 6. The user plays and gets a final score.
    <br />
