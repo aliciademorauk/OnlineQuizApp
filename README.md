@@ -127,6 +127,8 @@ To get a local copy up and running follow these steps:
 
 * [Best README.md Template](https://github.com/othneildrew/Best-README-Template)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## How It Works
 
 1. The user starts up the application.
