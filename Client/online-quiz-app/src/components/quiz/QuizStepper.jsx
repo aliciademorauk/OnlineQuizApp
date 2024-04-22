@@ -51,9 +51,9 @@ const QuizStepper = () => {
             case 1: 
                 return (
                 <div>
-                    <h3 className='text-info mb-2'>Set Quiz Subject</h3>
+                    <h3 className="text-info mb-2">Set Quiz Subject</h3>
                     <select 
-                        className='form-select'
+                        className="form-select"
                         value={selectedSubject}
                         onChange={handleChangeSubject}>
                         <option>Select</option>
@@ -68,9 +68,9 @@ const QuizStepper = () => {
             case 2:
                 return (
                     <div>
-                        <h4 className='text-info mb-2'>Number of Questions</h4>
+                        <h4 className="text-info mb-2">Number of Questions</h4>
                         <input
-                            className='form-control'
+                            className="form-control"
                             type='number'
                             value={selectedNumOfQs}
                             onChange={handleChangeNumOfQs}
@@ -92,9 +92,9 @@ const QuizStepper = () => {
 
     const renderProgressBar = () => {
         const progress = currentStep === 3 ? 100 :((currentStep - 1) / 2 * 100);
-        return <div className='progress'>
+        return <div className="progress">
             <div 
-                className='progress-bar'
+                className="progress-bar"
                 role='progressbar'
                 style={{width: `${progress}%`}}
                 aria-valuenow={progress}>
@@ -104,24 +104,24 @@ const QuizStepper = () => {
     };
 
     return (
-    <section className='mt-5'>
-        <h2 className='mt-5'>Quiz Setup</h2>
+    <section className="mt-5">
+        <h2 className="mt-5">Quiz Setup</h2>
         <hr />
         {renderProgressBar()}
-        <div className='card'>
-            <div className='card-body'>
+        <div className="card">
+            <div className="card-body">
                 {renderStepContent()}
                 <div className="d-flex justify-content-between mt-4">
                     {currentStep > 1 && (
                         <button 
-                            className='btn btn-primary'
+                            className="btn btn-primary"
                             onClick={handlePreviousStep}>
                             Previous
                         </button>
                     )}
                     {currentStep < 3 && (
                         <button
-                            className='btn btn-primary'
+                            className="btn btn-primary"
                             onClick={handleNext}
                             disabled={
                                 (currentStep === 1 && !selectedSubject) || 
@@ -131,7 +131,7 @@ const QuizStepper = () => {
                     )}
                     {currentStep === 3 && (
                         <button
-                        className='btn btn-success'
+                        className="btn btn-success"
                         onClick={handleNext}>
                             Start Quiz
                         </button>

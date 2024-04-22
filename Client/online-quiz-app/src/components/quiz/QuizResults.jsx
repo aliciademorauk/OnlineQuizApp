@@ -1,5 +1,5 @@
-import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const QuizResults = () => {
     const location = useLocation();
@@ -22,4 +22,4 @@ const QuizResults = () => {
   )
 }
 
-export default QuizResults
+export default QuizResults;

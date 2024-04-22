@@ -1,14 +1,14 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './components/Home'
-import QuizStepper from './components/quiz/QuizStepper'
-import Quiz from './components/quiz/Quiz'
-import QuizResults from './components/quiz/QuizResults'
-import GetAllQuestions from './components/quiz/GetAllQuestions'
-import AddQuestion from './components/question/AddQuestion'
-import UpdateQuestion from './components/question/UpdateQuestion'
-import NavBar from './components/layout/NavBar'
-import Admin from './components/Admin'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import QuizStepper from './components/quiz/QuizStepper';
+import Quiz from './components/quiz/Quiz';
+import QuizResults from './components/quiz/QuizResults';
+import GetAllQuestions from './components/quiz/GetAllQuestions';
+import AddQuestion from './components/question/AddQuestion';
+import UpdateQuestion from './components/question/UpdateQuestion';
+import NavBar from './components/layout/NavBar';
+import Admin from './components/Admin';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Router>
         <NavBar />
           <Routes>
-          <Route path='/' element={<Home />} />
+            <Route path='/' element={<Home />} />
             <Route path='/quiz-stepper' element={<QuizStepper />} />
             <Route path='/take-quiz' element={<Quiz />} />
             <Route path='/admin' element={<Admin />} />
@@ -27,7 +27,8 @@ function App() {
           </Routes>
       </Router>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
+

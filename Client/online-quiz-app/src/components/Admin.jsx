@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Admin = () => {
 	return (
@@ -15,7 +15,7 @@ const Admin = () => {
 				</Link>
 			</nav>
 		</section>
-	)
-}
+	);
+};
 
-export default Admin
+export default Admin;

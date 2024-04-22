@@ -51,7 +51,7 @@ const UpdateQuestion = () => {
                 correctAnswers: correctAnswers.toString().split(',').map((answer) => answer.trim())
             };
             await updateQuestion(id, updatedQuestion);
-            navigate("/all-questions");
+            navigate('/all-questions');
         } catch (error) {
             console.error(error);
         }
@@ -99,7 +99,7 @@ const UpdateQuestion = () => {
                         <button className='btn btn-outline-warning btn-sm' type='submit'>
                             Update Question
                         </button>
-                        <Link to={"/all-questions"} className="btn btn-outline-primary ml-2">
+                        <Link to={'/all-questions'} className='btn btn-outline-primary ml-2'>
 							Back to All Questions
 						</Link>
                     </div>
