@@ -1,5 +1,4 @@
-:warning: <p>All of my projects are a work in progress! They are experiments I am trying to improve but they are not a final version (and probably will never be!).</p>
-
+<em>:warning: All of my projects are a work in progress! They are experiments I am trying to improve but they are not a final version (and probably will never be!).</em>
 
 <!-- PROJECT LOGO -->
 <br />
