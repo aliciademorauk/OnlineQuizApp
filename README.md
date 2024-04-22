@@ -11,7 +11,6 @@
   <h3 align="center">QuizWizz App!</h3>
 
   <p align="center">
-    
     <br />
      ·
     <!-- LINK TO SECTION ON THE PAGE WITH SCREENSHOTS OF HOW IT WORKS -->
@@ -27,9 +26,11 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
+     <ul>
+        <li><a href="#functionality">Functionality</a></li>
+        <li><a href="#architecture">Architecture</a></li>
         <li><a href="#built-with">Built With</a></li>
-      </ul>
+     </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -39,7 +40,7 @@
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#license">License</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
