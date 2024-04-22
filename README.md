@@ -49,6 +49,13 @@
 
 ### Built With
 
+| Database      | Backend       | Frontend  |
+| ------------- |:-------------:|:---------:|
+|  ![PostGreSQL]             |    ![Java]           |  ![JavaScript]         |
+|               |     ![SpringBoot]          |   ![React]        |
+|               |               |   ![Bootstrap]        |
+
+
 * ![JavaScript]
 * ![React]
 * ![Bootstrap]
