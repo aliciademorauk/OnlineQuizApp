@@ -5,7 +5,7 @@
     <img src="https://github.com/aliciademorauk/OnlineQuizApp/raw/main/Client/online-quiz-app/img/question-mark.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">QuizWiz App!</h3>
+  <h3 align="center">QuizWizz App!</h3>
 
   <p align="center">
     <br />
