@@ -49,19 +49,11 @@
 
 ### Built With
 
-| Database      | Backend       | Frontend  |
-| ------------- |:-------------:|:---------:|
-|  ![PostGreSQL]             |    ![Java]           |  ![JavaScript]         |
-|               |     ![SpringBoot]          |   ![React]        |
-|               |               |   ![Bootstrap]        |
-
-
-* ![JavaScript]
-* ![React]
-* ![Bootstrap]
-* ![Java]
-* ![SpringBoot]
-* ![PostGreSQL]
+| Database      | Backend       | Frontend    |
+| ------------- |:-------------:|:---------:  |
+| ![PostGreSQL] |    ![Java]    |![JavaScript]|
+|               | ![SpringBoot] |  ![React]   |
+|               |               |![Bootstrap] |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
