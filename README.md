@@ -103,18 +103,10 @@ This is an example of how to list things you need to use the software and how to
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
-## License
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- CONTACT -->
-## Contact
-
-Project Link: [https://github.com/aliciademorauk/OnlineQuizApp](https://github.com/aliciademorauk/OnlineQuizApp)
+* [Best README.md Template](https://github.com/othneildrew/Best-README-Template/tree/master)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
