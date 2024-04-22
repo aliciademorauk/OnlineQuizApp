@@ -98,7 +98,7 @@ This is an example of how to list things you need to use the software and how to
 ## Roadmap
 
 - [ ] Implement user registration and login with user authentication through JWTs (WIP)
-- [ ] Use OpenAI's Chat Completions API for user to leverage text generation models to create questions more easily
+- [ ] Use OpenAI's Chat Completions API for user to leverage text generation model to create questions more easily
 - [ ] Create React error handling layer
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -106,14 +106,11 @@ This is an example of how to list things you need to use the software and how to
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Best README.md Template](https://github.com/othneildrew/Best-README-Template/tree/master)
+* [Best README.md Template](https://github.com/othneildrew/Best-README-Template)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [JavaScript]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
 [React]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [HTML]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
