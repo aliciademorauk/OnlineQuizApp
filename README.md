@@ -3,6 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+  
   <a href="https://github.com/aliciademorauk/OnlineQuizApp/blob/main/Client/online-quiz-app/img/question-mark.png">
     <img src="https://github.com/aliciademorauk/OnlineQuizApp/raw/main/Client/online-quiz-app/img/question-mark.png" alt="Logo" width="80" height="80">
   </a>
@@ -10,12 +11,14 @@
   <h3 align="center">QuizWizz App!</h3>
 
   <p align="center">
+    
     <br />
      ·
     <!-- LINK TO SECTION ON THE PAGE WITH SCREENSHOTS OF HOW IT WORKS -->
     <a href="https://github.com/othneildrew/Best-README-Template">Show me how it works!</a>
     ·
   </p>
+  
 </div>
 
 <!-- TABLE OF CONTENTS -->
