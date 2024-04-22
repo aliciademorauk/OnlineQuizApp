@@ -1,6 +1,5 @@
-<em>:warning: All of my projects are a work in progress! They are experiments I am trying to improve and are not a final version (and probably will never be!).</em>
+:warning: <em> All of my projects are a WIP! They are experiments and are not a final version (and probably will never be!). </em>
 
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
   
@@ -11,7 +10,6 @@
   <h3 align="center">QuizWizz App!</h3>
 
   <p align="center">
-    <br />
      ·
     <!-- LINK TO SECTION ON THE PAGE WITH SCREENSHOTS OF HOW IT WORKS -->
     <a href="https://github.com/othneildrew/Best-README-Template">Show me how it works!</a>
