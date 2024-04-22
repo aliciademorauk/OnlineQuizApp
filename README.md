@@ -38,7 +38,8 @@
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
   </ol>
 </details>
 
@@ -125,6 +126,36 @@ To get a local copy up and running follow these steps:
 ## Acknowledgments
 
 * [Best README.md Template](https://github.com/othneildrew/Best-README-Template)
+
+## How It Works
+
+1. The user starts up the application.
+   <br />
+   <img width="500" alt="Screenshot 2024-04-22 at 21 52 31" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/5fe5bba7-0697-4650-8808-0a86dc7e4894">
+   
+2. The user can see the full bank of questions.
+   <br />
+   <img width="500" alt="Screenshot 2024-04-22 at 21 59 33" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/2baa2e9a-a5f0-48c7-b5fd-478911663fcb">
+   
+3. The user can add a question, select the subject the question belongs to and whether it has a single or multiple correct answer(s).
+   <br />
+   <img width="500" alt="Screenshot 2024-04-22 at 21 59 43" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/47b819d5-99c1-4c32-a6e2-546d167552ad">
+   <img width="500" alt="Screenshot 2024-04-22 at 22 00 04" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/0a651f57-ba1b-47d1-88c2-bf91b1659f89">
+   
+4. The user can delete questions from the existing pool.
+   <br />
+   <img width="500" alt="Screenshot 2024-04-22 at 22 00 35" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/aa3e573e-8d81-4f05-8177-ce925f84124f">
+
+5. The user can set up the quiz.
+   <br />
+   <img width="500" alt="Screenshot 2024-04-22 at 22 00 43" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/213d3a27-a0d3-4e76-af24-5ca1aa40730b">
+   <img width="500" alt="Screenshot 2024-04-22 at 22 00 50" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/c26d6bee-3e74-47ec-9cf2-10f3b91c53cb">
+   <img width="1470" alt="Screenshot 2024-04-22 at 22 00 56" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/24b4a66f-46c8-4410-937a-1d4ec18c1a9d">
+   
+6. The user plays and gets a final score.
+   <br />
+   <img width="500" alt="Screenshot 2024-04-22 at 22 01 04" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/812ac814-635b-4fba-817b-6533ed54785a">
+   <img width="500" alt="Screenshot 2024-04-22 at 22 03 25" src="https://github.com/aliciademorauk/BlogPost-WebApp/assets/81619741/b0b9fe6b-f21c-416b-8dc5-f9ed07c2928c">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
