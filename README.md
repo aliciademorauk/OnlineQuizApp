@@ -48,10 +48,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 ### Functionality
-* Full stack web application that allows users to submit multiple choice questions with single or multiple correct answers. Questions are mapped to a specific subject. The user can then generate a quiz on any subject for which a bank of questions has been added by specifying the subject and the number of questions.
+* Full stack web application that allows users to submit multiple choice questions with single or multiple correct answers. Questions are mapped to a specific subject.
+* The user can then generate a quiz on any subject for which a bank of questions has been added by specifying the subject and the number of questions.
 
 ### Architecture
-* The project is currently hosted in a monorepo, where the Server and Client directories separate backend and frontend logic, respectively. The database layer uses **PostGreSQL**, the backend layer is a **SpringBoot RestFUL API** service which is consumed by the frontend, in turn a **React** application styled with **Bootstrap**.
+* The project is currently hosted in a monorepo, where the Server and Client directories separate backend and frontend logic, respectively.
+* The database layer uses **PostGreSQL**, the backend layer is a **SpringBoot RestFUL API** service which is consumed by the frontend, in turn a **React** application styled with **Bootstrap**.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -69,34 +71,40 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
+To get a local copy up and running follow these steps:
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+  * Make sure you have the following installed:
+    * [MySQL](https://dev.mysql.com/downloads/mysql/) server for the database layer.
+    * Java and [Maven](https://maven.apache.org/install.html) build tool for the backend.
+    * [Node.js](https://nodejs.org/en) and npm for the frontend.
 
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+  * Create a MySQL database schema in your IDE (e.g. MySQLWorkbench) or on the command line. [FINISH]
+
+  * Clone this repository: `git clone https://github.com/aliciademorauk/QuizWizz`.
+    
+  * Navigate to the backend: `cd QuizWizz/Server/OnlineQuizApp`.
+    
+  * Run `mvn install` to install the project's specific dependencies.
+
+  * Navigate to the frontend: `cd QuizWizz/Client/online-quiz-app`.
+
+  * Run `npm install` to install the project's specific dependencies.
+    
+
+### Execution
+
+  * Navigate to the backend: `cd QuizWizz/Server/OnlineQuizApp`.
+
+  * Run the SpringBoot project to expose the endpoints on your IDE or `mvn spring-boot:run`.
+    
+  * Run the React app to consume the endpoints using `npm run dev`.
+    
+  * Follow the link to the default port where the development server has been started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
