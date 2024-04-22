@@ -83,7 +83,11 @@ To get a local copy up and running follow these steps:
 
 ### Installation
 
-  * Create a MySQL database schema in your IDE (e.g. MySQLWorkbench) or on the command line. [FINISH]
+  * Create a MySQL database in your chosen IDE (e.g. MySQLWorkbench) or via the command line. In `application.properties` fill in the database properties:
+    * `spring.datasource.url`;
+    * `spring.datasource.username`;
+    * `spring.datasource.password`;
+    * `spring.jpa.hibernate.ddl-auto` -> set this property to `update` to avoid data being deleted from the database when you re-run the app.
 
   * Clone this repository: `git clone https://github.com/aliciademorauk/QuizWizz`.
     
@@ -100,11 +104,13 @@ To get a local copy up and running follow these steps:
 
   * Navigate to the backend: `cd QuizWizz/Server/OnlineQuizApp`.
 
-  * Run the SpringBoot project to expose the endpoints on your IDE or `mvn spring-boot:run`.
+  * Run the SpringBoot project on your IDE or run `mvn spring-boot:run`. This will also automatically create the database schema if it doesn't yet exist.
     
   * Run the React app to consume the endpoints using `npm run dev`.
     
   * Follow the link to the default port where the development server has been started.
+
+  * Start adding questions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
