@@ -1,14 +1,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="[https://github.com/aliciademorauk/OnlineQuizApp/blob/main/Client/online-quiz-app/img/question-mark.png](https://github.com/aliciademorauk/OnlineQuizApp/blob/main/Client/online-quiz-app/img/question-mark.png)">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/aliciademorauk/OnlineQuizApp/blob/main/Client/online-quiz-app/img/question-mark.png">
+    <img src="https://github.com/aliciademorauk/OnlineQuizApp/raw/main/Client/online-quiz-app/img/question-mark.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">QuizWiz App!</h3>
 
   <p align="center">
-    An online quiz application that allows users to create a set of questions mapped to a given subject and generate a quiz with the desired number of questions from a given subject.
+    This is an online quiz application for students to quiz themselves or for anyone to use with other people.
     <br />
     <br />
     <br />
