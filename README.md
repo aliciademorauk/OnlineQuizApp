@@ -110,7 +110,7 @@ To get a local copy up and running follow these steps:
     
   * Follow the link to the default port where the development server has been started.
 
-  * Start adding questions.
+  * Start adding questions! 😄
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
