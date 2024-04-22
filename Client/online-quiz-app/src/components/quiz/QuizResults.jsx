@@ -14,7 +14,7 @@ const QuizResults = () => {
         <h5>You answered {totalScore} correctly out of {numOfQuestions} questions.</h5>
         <p>Your score is {percentScore}%.</p>
         <button 
-        className='btn-primary btn-sm'
+        className='btn btn-primary'
         onClick={() => navigate('/quiz-stepper')}>
             Start Another Quiz
         </button>
