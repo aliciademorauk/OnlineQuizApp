@@ -41,7 +41,10 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+### Functionality
 * Full stack web application that allows users to submit multiple choice questions with single or multiple correct answers. Questions are mapped to a specific subject. The user can then generate a quiz on any subject for which a bank of questions has been added by specifying the subject and the number of questions.
+
+### Architecture
 * The project is currently hosted in a monorepo, where the Server and Client directories separate backend and frontend logic, respectively. The database layer uses **PostGreSQL**, the backend layer is a **SpringBoot RestFUL API** service which is consumed by the frontend, in turn a **React** application styled with **Bootstrap**.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
